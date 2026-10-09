@@ -17,7 +17,7 @@ OBJET_CENTRE_X = 0.5
 OBJET_CENTRE_Y = 0.5
 OBJET_TAILLE = 0.2
 
-print("Dimensions :", L_X, "m x", L_Y, "m")
-print("Température ambiante :", T_AMBIANTE, "°C")
-print("Température initiale de l'objet :", T_OBJET, "°C")
-print("Durée étudiée :", T_MAX, "secondes")
+if __name__ == "__main__":
+    print("Dimensions :", L_X, "m x", L_Y, "m")
+    print("Températures :", T_AMBIANTE, "à", T_OBJET, "°C")
+    print("Durée étudiée :", T_MAX, "secondes")
