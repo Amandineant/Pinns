@@ -2,3 +2,5 @@
 __pycache__/
 *.pyc
 .DS_Store
+# Modèles locaux, non nécessaires dans Git
+experiments/**/*.pt

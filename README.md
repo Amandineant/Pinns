@@ -234,3 +234,19 @@ L'ancien maximum 22.70898 n'est plus une cible de validation.
 ```bash
 python -m unittest -v test_base test_pinn test_losses test_reference
 ```
+
+## Premier diagnostic Adam (300 étapes)
+
+Commande : `python diagnostic_adam.py`. Graine modèle/entraînement 0,
+graine des points de contrôle indépendants 123, Adam lr=0.001, coefficients
+IC/BC/RES tous à 1, 1000 IC, 1000 BC et 2000 RES fixes. Historique,
+configuration et contrôles sont enregistrés dans experiments/diagnostic_adam/
+resultats.json ; modèle local dans modele.pt (ignoré par Git).
+
+Sur les points de contrôle : perte totale 0.048458 -> 0.036698, IC
+0.038924 -> 0.036296, BC 0.004759 -> 0.000339, RES 0.004776 -> 0.000064.
+Malgré cette baisse, la température moyenne prédite dans l'objet à t=0 n'est
+que 24.55 °C (u=0.07576), contre 80 °C attendus. Le RMSE chaud vaut encore
+0.92424 en température réduite. C'est un diagnostic court, pas un résultat
+scientifiquement satisfaisant ni l'entraînement final. Les prochaines décisions
+(durée d'Adam, L-BFGS, équilibrage) devront être validées et comparées.
